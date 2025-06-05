@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>سایت فروشگاهی ساده</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Tahoma, sans-serif;
+    background: linear-gradient(45deg, #d2b48c 60%, #f0e68c 40%);
+    min-height: 100vh;
+    padding: 20px;
+    direction: rtl;
+  }
+  h1 {
+    text-align: center;
+    color: #5a3e1b;
+  }
+  form {
+    max-width: 400px;
+    margin: 0 auto 30px auto;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #b2946a;
+  }
+  label {
+    display: block;
+    margin-bottom: 6px;
+    color: #5a3e1b;
+    font-weight: bold;
+  }
+  input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #b2946a;
+    border-radius: 4px;
+  }
+  button {
+    background-color: #f0e68c;
+    border: none;
+    padding: 10px 20px;
+    color: #5a3e1b;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background-color: #d2b48c;
+  }
+  .products {
+    max-width: 600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(150px,1fr));
+    gap: 15px;
+  }
+  .product {
+    background: rgba(255,255,255,0.85);
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 0 6px #b2946a;
+    text-align: center;
+    color: #5a3e1b;
+    position: relative;
+  }
+  .product h3 {
+    margin: 0 0 10px 0;
+  }
+  .product p {
+    margin: 0;
+  }
+  .delete-btn {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: #e74c3c;
+    border: none;
+    color: white;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 20px;
+  }
+  .delete-btn:hover {
+    background: #c0392b;
+  }
+</style>
+</head>
+<body>
+  <h1>فروشگاه من</h1>
+
+  <form id="productForm">
+    <label for="productName">نام محصول:</label>
+    <input type="text" id="productName" required />
+
+    <label for="productPrice">قیمت (تومان):</label>
+    <input type="number" id="productPrice" required min="0" />
+
+    <button type="submit">ثبت محصول</button>
+  </form>
+
+  <div class="products" id="productsContainer">
+    <!-- محصولات اینجا نمایش داده میشن -->
+  </div>
+
+  <script>
+    const form = document.getElementById('productForm');
+    const productsContainer = document.getElementById('productsContainer');
+
+    // خواندن محصولات ذخیره شده از localStorage
+    let products = JSON.parse(localStorage.getItem('products')) || [];
+
+    // نمایش محصولات ذخیره شده در صفحه
+    function renderProducts() {
+      productsContainer.innerHTML = '';
+      products.forEach((product, index) => {
+        const productDiv = document.createElement('div');
+        productDiv.classList.add('product');
+
+        productDiv.innerHTML = 
+          <button class="delete-btn" data-index="${index}">&times;</button>
+          <h3>${product.name}</h3>
+          <p>قیمت: ${product.price} تومان</p>
+        ;
+
+        productsContainer.appendChild(productDiv);
+      });
+    }
+
+    // اضافه کردن محصول جدید
+    function addProduct(name, price) {
+      products.push({name, price});
+      localStorage.setItem('products', JSON.stringify(products));
+      renderProducts();
+    }
+
+    // حذف محصول با ایندکس مشخص
+    function deleteProduct(index) {
+      products.splice(index, 1);
+      localStorage.setItem('products', JSON.stringify(products));
+      renderProducts();
+    }
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const name = document.getElementById('productName').value.trim();
+      const price = document.getElementById('productPrice').value.trim();
+
+      if(name && price) {
+        addProduct(name, price);
+        form.reset();
+      }
+    });
+
+    productsContainer.addEventListener('click', e => {
+      if(e.target.classList.contains('delete-btn')) {
+        const index = e.target.getAttribute('data-index');
+        deleteProduct(index);
+      }
+    });// بارگذاری اولیه محصولات
+    renderProducts();
+  </script>
+</body>
+</html>
