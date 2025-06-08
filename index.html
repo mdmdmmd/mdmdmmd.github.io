@@ -1,85 +1,48 @@
-<!DOCTYPE html>
-<html lang="fa">
+<!DOCTYPE html><html lang="fa">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>فروشگاه من</title>
-  <link rel="stylesheet" href="style.css" />
   <link href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <header>
-    <h1>فروشگاه من</h1>
-    <nav>
-      <a href="#home">خانه</a>
-      <a href="#products">محصولات</a>
-      <a href="#add-product">افزودن محصول</a>
-      <a href="#cart"><i class="fas fa-shopping-cart"></i> (<span id="cart-count">0</span>)</a>
-      <a href="#login">ورود</a>
-    </nav>
-  </header>
-
-  <!-- اسلایدر ساده -->
-  <div class="slider">
-    <p>🔥 تخفیف ویژه امروز! ارسال رایگان برای سفارش‌های بالای 1میلیون تومان تومان! 🔥</p>
-  </div>
-
-  <section class="container" id="home">
-    <h2>به فروشگاه ما خوش آمدید!</h2>
-    <p>در اینجا بهترین محصولات را با کیفیت عالی و قیمت مناسب خواهید یافت.</p>
-    <input type="text" id="search" placeholder="جستجوی محصول..." />
-  </section>
-
-  <section class="container" id="products">
+  <!-- Header -->
+  <header class="main-header">
+    <div class="logo">فروشگاه من</div>
+    <div class="search-bar">
+      <input type="text" placeholder="جستجو در محصولات...">
+      <button><i class="fas fa-search"></i></button>
+    </div>
+    <div class="user-cart">
+      <a href="#" class="user"><i class="fas fa-user"></i></a>
+      <a href="#" class="cart"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+    </div>
+  </header>  <!-- Navigation -->  <nav class="main-nav">
+    <ul>
+      <li><a href="#">صفحه اصلی</a></li>
+      <li class="dropdown">
+        <a href="#">دسته‌بندی کالاها</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">موبایل</a></li>
+          <li><a href="#">لپ‌تاپ</a></li>
+          <li><a href="#">پوشاک</a></li>
+          <li><a href="#">لوازم خانگی</a></li>
+        </ul>
+      </li>
+      <li><a href="#about">درباره ما</a></li>
+    </ul>
+  </nav>  <!-- Slider -->  <section class="slider">
+    <img src="https://dkstatics-public.digikala.com/digikala-adservice-banners/b8e3e31bb6df49c6b1e3a6c84ad17615f6d3d6e1_1717670240.jpg?x-oss-process=image" alt="بنر تبلیغاتی" />
+  </section>  <!-- Product Section -->  <section class="container" id="products">
     <h2>محصولات</h2>
-    <div>
-      <select id="category-filter">
-        <option value="all">همه دسته‌ها</option>
-        <option value="قابلمه و ماهیتابه">قابلمه و ماهیتابه</option>
-        <option value="بلور">بلور</option>
-        <option value="زودپز">زودپز</option>
-      </select>
-    </div>
-    <div class="product-list" id="product-list">
-      <!-- محصولات به صورت داینامیک وارد می‌شوند -->
-    </div>
-  </section>
-
-  <section class="container" id="add-product">
-    <h2>افزودن محصول جدید</h2>
-    <form id="product-form">
-      <input type="text" id="product-name" placeholder="نام محصول" required />
-      <input type="text" id="product-price" placeholder="قیمت (تومان)" required />
-      <input type="text" id="product-category" placeholder="دسته‌بندی (مثلاً لباس)" required />
-      <input type="file" id="product-image" accept="image/*" required />
-      <textarea id="product-description" placeholder="توضیح محصول" required></textarea>
-      <button type="submit">افزودن</button>
-    </form>
-  </section>
-
-  <section class="container" id="cart">
-    <h2>سبد خرید</h2>
-    <ul id="cart-items"></ul>
-    <p id="cart-total">مجموع: 0 تومان</p>
-  </section>
-
-  <section class="container" id="login">
-    <h2>ورود / ثبت‌نام</h2>
-    <form id="login-form">
-      <input type="text" placeholder="نام کاربری" required />
-      <input type="password" placeholder="رمز عبور" required />
-      <button type="submit">ورود</button>
-    </form>
-  </section>
-
-  <footer>
-    <p>تمامی حقوق محفوظ است &copy; 2025</p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
-body {
-  background: linear-gradient(135deg, #e0eafc, #cfdef3);
-}
+    <div class="product-list">
+      <div class="product">
+        <img src="https://dkstatics-public.digikala.com/digikala-products/111328234.jpg" alt="محصول ۱">
+        <h3>محصول شماره ۱</h3>
+        <p>توضیح کوتاه درباره محصول</p>
+        <p class="price">150,000 <span>تومان</span></p>
+        <button>افزودن به سبد خرید</button>
+      </div>
+      <div class="product">
