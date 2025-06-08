@@ -1,48 +1,61 @@
-<!DOCTYPE html><html lang="fa">
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>فروشگاه من</title>
-  <link href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
   <!-- Header -->
-  <header class="main-header">
-    <div class="logo">فروشگاه من</div>
-    <div class="search-bar">
-      <input type="text" placeholder="جستجو در محصولات...">
-      <button><i class="fas fa-search"></i></button>
+  <header class="header">
+    <div class="logo">دیجی‌شاپ</div>
+    <input type="text" placeholder="جستجو..." class="search-box">
+    <div class="icons">
+      <button>ورود</button>
+      <button>🛒</button>
     </div>
-    <div class="user-cart">
-      <a href="#" class="user"><i class="fas fa-user"></i></a>
-      <a href="#" class="cart"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
-    </div>
-  </header>  <!-- Navigation -->  <nav class="main-nav">
+  </header>
+
+  <!-- Navbar -->
+  <nav class="navbar">
     <ul>
-      <li><a href="#">صفحه اصلی</a></li>
-      <li class="dropdown">
-        <a href="#">دسته‌بندی کالاها</a>
-        <ul class="dropdown-menu">
-          <li><a href="#">موبایل</a></li>
-          <li><a href="#">لپ‌تاپ</a></li>
-          <li><a href="#">پوشاک</a></li>
-          <li><a href="#">لوازم خانگی</a></li>
-        </ul>
-      </li>
-      <li><a href="#about">درباره ما</a></li>
+      <li><a href="#">کالای دیجیتال</a></li>
+      <li><a href="#">مد و پوشاک</a></li>
+      <li><a href="#">خانه و آشپزخانه</a></li>
+      <li><a href="#">زیبایی و سلامت</a></li>
     </ul>
-  </nav>  <!-- Slider -->  <section class="slider">
-    <img src="https://dkstatics-public.digikala.com/digikala-adservice-banners/b8e3e31bb6df49c6b1e3a6c84ad17615f6d3d6e1_1717670240.jpg?x-oss-process=image" alt="بنر تبلیغاتی" />
-  </section>  <!-- Product Section -->  <section class="container" id="products">
-    <h2>محصولات</h2>
+  </nav>
+
+  <!-- Slider -->
+  <section class="slider">
+    <img src="https://via.placeholder.com/1200x300?text=بنر+تبلیغاتی" alt="بنر">
+  </section>
+
+  <!-- Products Section -->
+  <section class="products">
+    <h2>محصولات پیشنهادی</h2>
     <div class="product-list">
-      <div class="product">
-        <img src="https://dkstatics-public.digikala.com/digikala-products/111328234.jpg" alt="محصول ۱">
-        <h3>محصول شماره ۱</h3>
-        <p>توضیح کوتاه درباره محصول</p>
-        <p class="price">150,000 <span>تومان</span></p>
-        <button>افزودن به سبد خرید</button>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200" alt="محصول">
+        <h3>گوشی هوشمند</h3>
+        <p class="price">۸,۵۰۰,۰۰۰ تومان</p>
+        <button>افزودن به سبد</button>
       </div>
-      <div class="product">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200" alt="محصول">
+        <h3>هدفون بلوتوث</h3>
+        <p class="price">۱,۲۰۰,۰۰۰ تومان</p>
+        <button>افزودن به سبد</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 فروشگاه دیجی‌شاپ. همه حقوق محفوظ است.</p>
+  </footer>
+
+</body>
+</html>
