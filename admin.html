@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>مدیریت محصولات</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; direction: rtl; }
+    input, textarea { display: block; margin-bottom: 10px; width: 300px; padding: 5px; }
+    button { padding: 10px 20px; }
+  </style>
+</head>
+<body>
+  <h1>افزودن محصول جدید</h1>
+  <input type="text" id="title" placeholder="نام محصول">
+  <input type="text" id="price" placeholder="قیمت">
+  <input type="text" id="image" placeholder="آدرس عکس (URL)">
+  <input type="text" id="category" placeholder="دسته‌بندی">
+  <button onclick="addProduct()">افزودن</button>
+
+  <script>
+    function addProduct() {
+      const title = document.getElementById('title').value;
+      const price = document.getElementById('price').value;
+      const image = document.getElementById('image').value;
+      const category = document.getElementById('category').value;
+
+      if (!title || !price || !image || !category) {
+        alert("همه فیلدها الزامی هستند!");
+        return;
+      }
+
+      const product = { title, price, image, category };
+      const saved = JSON.parse(localStorage.getItem("products")) || [];
+      saved.push(product);
+      localStorage.setItem("products", JSON.stringify(saved));
+      alert("محصول با موفقیت افزوده شد!");
+    }
+  </script>
+</body>
+</html>
