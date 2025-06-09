@@ -39,3 +39,14 @@ function login() {
   alert("خوش آمدید " + user + "!");
   closeModal();
 }
+function filterCategory(cat) {
+  const cards = document.querySelectorAll('.product-card');
+  cards.forEach(card => {
+    const category = card.getAttribute("data-category");
+    if (!cat || category === cat) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
