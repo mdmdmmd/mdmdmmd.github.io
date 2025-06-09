@@ -20,3 +20,22 @@ function addToCart(title, price) {
 }
 
 updateCartCount(); // اجرا در بارگذاری
+function openModal() {
+  document.getElementById('auth-modal').classList.remove('hidden');
+}
+function closeModal() {
+  document.getElementById('auth-modal').classList.add('hidden');
+}
+function login() {
+  const user = document.getElementById('username').value;
+  const pass = document.getElementById('password').value;
+
+  if (user.length < 3 || pass.length < 4) {
+    alert("اطلاعات وارد شده معتبر نیست!");
+    return;
+  }
+
+  localStorage.setItem("user", user);
+  alert("خوش آمدید " + user + "!");
+  closeModal();
+}
