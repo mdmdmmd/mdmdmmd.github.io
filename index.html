@@ -6,7 +6,15 @@
   <title>فروشگاه من</title>
   <link rel="stylesheet" href="style.css">
 </head><script defer src="script.js"></script>
-<body>
+<body><div id="auth-modal" class="modal hidden">
+  <div class="modal-content">
+    <h2>ورود / ثبت‌نام</h2>
+    <input id="username" type="text" placeholder="نام کاربری">
+    <input id="password" type="password" placeholder="رمز عبور">
+    <button onclick="login()">ورود</button>
+    <button onclick="closeModal()">بستن</button>
+  </div>
+</div>
 
   <!-- Header -->
   <header class="header">
