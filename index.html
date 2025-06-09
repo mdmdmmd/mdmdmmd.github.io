@@ -6,7 +6,39 @@
   <title>فروشگاه من</title>
   <link rel="stylesheet" href="style.css">
 </head><script defer src="script.js"></script>
-<body><div id="auth-modal" class="modal hidden">
+<body<script>
+  function loadProducts() {
+    const products = JSON.parse(localStorage.getItem("products")) || [];
+    const container = document.querySelector(".product-list");
+
+    products.forEach(product => {
+      const card = document.createElement("div");
+      card.className = "product-card";
+      card.setAttribute("data-category", product.category);
+      card.innerHTML = 
+        <img src="${product.image}" alt="محصول">
+        <h3>${product.title}</h3>
+        <p class="price">${parseInt(product.price).toLocaleString()} تومان</p>
+        <button onclick="addToCart('${product.title}', ${product.price})">افزودن به سبد</button>
+      ;
+      container.appendChild(card);
+    });
+  }
+
+  function addToCart(title, price) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const found = cart.find(p => p.title === title);
+    if (found) {
+      found.quantity += 1;
+    } else {
+      cart.push({ title, price, quantity: 1 });
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("به سبد اضافه شد!");
+  }
+
+  window.onload = loadProducts;
+</script>><div id="auth-modal" class="modal hidden">
   <div class="modal-content">
     <h2>ورود / ثبت‌نام</h2>
     <input id="username" type="text" placeholder="نام کاربری">
