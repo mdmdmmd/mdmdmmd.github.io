@@ -110,12 +110,27 @@ body {
   font-weight: bold;
   margin-right: 5px;
 }
-<div id="auth-modal" class="modal hidden">
-  <div class="modal-content">
-    <h2>ورود / ثبت‌نام</h2>
-    <input id="username" type="text" placeholder="نام کاربری">
-    <input id="password" type="password" placeholder="رمز عبور">
-    <button onclick="login()">ورود</button>
-    <button onclick="closeModal()">بستن</button>
-  </div>
-</div>
+.modal {
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+.modal.hidden {
+  display: none;
+}
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+}
+.modal-content input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 8px;
+}
