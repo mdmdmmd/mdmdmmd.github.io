@@ -28,7 +28,13 @@
 
   <!-- Navbar -->
   <nav class="navbar">
-    <ul>
+    <ul><div class="filters">
+  <select onchange="filterCategory(this.value)">
+    <option value="">همه دسته‌ها</option>
+    <option value="قابلمه لایف اسمایل">قابلمه لایف اسمایل</option>
+    <option value="زودپز">زودپز</option>
+  </select>
+</div>
       <li><a href="#">قابلمه وماهیتابه</a></li>
       <li><a href="#">بلور</a></li>
       <li><a href="#">زودپز</a></li>
